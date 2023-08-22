@@ -1,0 +1,60 @@
+{
+  "name": "react-native-flying-objects",
+  "version": "1.0.0",
+  "description": "flying objects for react native",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "lint": "eslint --ext .tsx --ext .ts src/",
+    "format": "prettier --check ./src",
+    "start": "rm -rf dev/dist && tsc -w --outDir dev/dist",
+    "start:expo": "rm -rf expo/dist && tsc -w --outDir expo/dist",
+    "prepare": "rm -rf dist && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ysh4296/react-native-flying-objects.git"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": "cadi <dbtmdgns4296@naver.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ysh4296/react-native-flying-objects/issues"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "eslint --ext .tsx --ext .ts src/ --fix"
+    ],
+    "./src/**": [
+      "prettier --write ."
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "devDependencies": {
+    "husky": "4.2.3",
+    "lint-staged": "10.0.9",
+    "react": "*",
+    "react-native": "*",
+    "@types/react": "18.0.9",
+    "@types/react-native": "0.67.7",
+    "@typescript-eslint/eslint-plugin": "4.33.0",
+    "@typescript-eslint/parser": "4.33.0",
+    "eslint": "7.9.0",
+    "eslint-plugin-prettier": "3.4.1",
+    "eslint-plugin-react": "7.29.4",
+    "eslint-plugin-react-hooks": "4.5.0",
+    "prettier": "2.6.2",
+    "typescript": "4.6.4"
+  },
+  "homepage": "https://github.com/ysh4296/react-native-flying-objects#readme"
+}

@@ -16,6 +16,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',
+    requireConfigFile: false,
     ecmaFeatures: {
       jsx: true,
     },
@@ -38,5 +39,5 @@ module.exports = {
       version: 'detect',
     },
   },
-  ignorePatterns: ['/dist', '/node-modules'],
+  ignorePatterns: ['/dist', '/node-modules', '/dev'],
 };

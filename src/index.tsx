@@ -1,11 +1,33 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Pressable } from 'react-native';
+import FlyingEmoticons from './FlyingEmoticons';
 
 const Hello = (): JSX.Element => {
-  const hello: any = 'hi';
+  const [animate, setAnimate] = useState<string[]>([]);
   return (
     <View>
-      <Text>{hello}</Text>
+      <>
+        <Pressable
+          onPress={() => {
+            setAnimate((prev) => ['lit', ...prev]);
+          }}
+        >
+          <Text>button</Text>
+        </Pressable>
+        <View
+          pointerEvents="none"
+          style={{
+            width: 50,
+            height: 100,
+            position: 'absolute',
+            bottom: 20,
+          }}
+        >
+          {animate.map((item, index) => (
+            <FlyingEmoticons key={index} />
+          ))}
+        </View>
+      </>
     </View>
   );
 };

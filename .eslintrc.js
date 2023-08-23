@@ -39,5 +39,5 @@ module.exports = {
       version: 'detect',
     },
   },
-  ignorePatterns: ['/dist', '/node-modules', '/dev'],
+  ignorePatterns: ['/dist', '/node-modules'],
 };

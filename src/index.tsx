@@ -1,35 +1,28 @@
-import React, { useState } from 'react';
-import { View, Text, Pressable } from 'react-native';
-import FlyingEmoticons from './FlyingEmoticons';
+import React from 'react';
+import { View, ViewProps } from 'react-native';
+import FlyingObjects from './FlyingObjects';
 
-const Hello = (): JSX.Element => {
-  const [animate, setAnimate] = useState<string[]>([]);
+interface FlyingViewProps {
+  children: React.ReactNode;
+  object: AnimatedObject[];
+  objectConfig: ObjectConfig;
+  containerProps?: ViewProps;
+}
+
+const FlyingView = ({ children, object, objectConfig, containerProps }: FlyingViewProps) => {
   return (
-    <View>
-      <>
-        <Pressable
-          onPress={() => {
-            setAnimate((prev) => ['lit', ...prev]);
-          }}
-        >
-          <Text>button</Text>
-        </Pressable>
-        <View
-          pointerEvents="none"
-          style={{
-            width: 50,
-            height: 100,
-            position: 'absolute',
-            bottom: 20,
-          }}
-        >
-          {animate.map((item, index) => (
-            <FlyingEmoticons key={index} />
-          ))}
-        </View>
-      </>
+    <View
+      pointerEvents="none"
+      {...containerProps}
+      style={[{ width: 50, height: 120 }, containerProps?.style]}
+    >
+      {object.map((item, index) => (
+        <FlyingObjects key={index} objectConfig={objectConfig}>
+          {children}
+        </FlyingObjects>
+      ))}
     </View>
   );
 };
 
-export default Hello;
+export default FlyingView;

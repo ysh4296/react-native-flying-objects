@@ -1,12 +1,66 @@
-import React from 'react';
-import {StyleSheet, SafeAreaView} from 'react-native';
+import React, { useMemo, useState } from 'react';
+import {Text,StyleSheet, SafeAreaView, Pressable} from 'react-native';
 
-import Hello from './dist';
+import FlyingView from './dist';
+
+// const DURATION = 700;
+// const DELAY = 0;
 
 const App = () => {
+  const [object, setObject] = useState<AnimatedObject[]>([]);
+  const objectConfig = useMemo(
+    () => ({
+      // right: {
+      //   fromValue: 15,
+      //   toValue: Math.floor(Math.random() * 30),
+      //   duration: 1200,
+      //   easing:Easing.bezier(
+      //     Math.floor(Math.random() * 10) / 10,
+      //     Math.floor(Math.random() * 10) / 10 + 0.7,
+      //     Math.floor(Math.random() * 10) / 10,
+      //     Math.floor(Math.random() * 10) / 10 + 0.7,
+      //   ),
+      //   delay: DELAY,
+      // },
+      // top: {
+      //   fromValue: 100,
+      //   toValue: 35,
+      //   duration: 1200,
+      //   easing: Easing.bezier(0.5, 1.0, 0.5, 1.0),
+      //   delay: DELAY,
+      // },
+      // show: {
+      //   fromValue: 1,
+      //   toValue: 0,
+      //   duration: DURATION,
+      //   easing: Easing.exp,
+      //   delay: DELAY,
+      // },
+      // hide:{
+      //   fromValue: 1,
+      //   toValue: 0,
+      //   duration: DURATION,
+      //   easing: Easing.exp,
+      //   delay: DELAY,
+      // },
+    }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [object]
+  );
+
   return (
     <SafeAreaView style={styles.container}>
-      <Hello />
+        <FlyingView object={object} objectConfig={objectConfig} containerProps={{style:{  borderWidth:2,borderColor:'black'}}}>
+          <Text>hello</Text>
+        </FlyingView>
+        <Pressable
+          onPress={() => {
+            setObject((prev) => [{}, ...prev]);
+          }}
+          style={{ backgroundColor : 'yellow' }}
+        >
+          <Text>button</Text>
+        </Pressable>
     </SafeAreaView>
   );
 };

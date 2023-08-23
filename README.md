@@ -27,6 +27,7 @@ add properties for modify FlyingView.
 
   ```js
   setObject((prev) => [...prev, newObject]);
+  // the new object added
   ```
 
 - add FlyingView where you want to use.
@@ -34,9 +35,10 @@ add properties for modify FlyingView.
   ```js
   return (
     <FlyingView object={object}>
-      <Text>hello</Text> // text "hello" will be the object that flying
+      <Text>hello</Text>
     </FlyingView>
   );
+  // text "hello" will be the object that flying
   ```
 
 ## TYPES

@@ -4,20 +4,19 @@ import FlyingObjects from './FlyingObjects';
 
 interface FlyingViewProps {
   children: React.ReactNode;
-  object: AnimatedObject[];
-  objectConfig: ObjectConfig;
+  object: ObjectConfig[];
   containerProps?: ViewProps;
 }
 
-const FlyingView = ({ children, object, objectConfig, containerProps }: FlyingViewProps) => {
+const FlyingView = ({ children, object, containerProps }: FlyingViewProps) => {
   return (
     <View
       pointerEvents="none"
       {...containerProps}
       style={[{ width: 50, height: 120 }, containerProps?.style]}
     >
-      {object.map((item, index) => (
-        <FlyingObjects key={index} objectConfig={objectConfig}>
+      {object.map((object, index) => (
+        <FlyingObjects key={index} objectConfig={object}>
           {children}
         </FlyingObjects>
       ))}

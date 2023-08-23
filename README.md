@@ -2,6 +2,60 @@
 
 flying objects package for react native
 
-## _It is the beta version currently under development._
+## INSTALLATION
 
-i'm sorry i'll complete the job before 2023 8 27
+`npm install --save react-native-flying-objects`
+
+## HOW TO USE
+
+import react-native-flying-objects.
+
+```js
+import FlyingView from 'react-native-flying-objects';
+```
+
+add properties for modify FlyingView.
+
+- manage state for flying objects
+
+  ```js
+  const [object, setObject] = useState<ObjectConfig[]>([]);
+  // manage every rendering objects
+  ```
+
+- when you want to add object just add more state
+
+  ```js
+  setObject((prev) => [...prev, newObject]);
+  ```
+
+- add FlyingView where you want to use.
+
+  ```js
+  return (
+    <FlyingView object={object}>
+      <Text>hello</Text> // text "hello" will be the object that flying
+    </FlyingView>
+  );
+  ```
+
+## TYPES
+
+types for use FlyingView
+
+```js
+interface AnimatedObject {
+  fromValue?: number;
+  toValue?: number;
+  duration?: number;
+  easing?: ((value: number) => number) | undefined;
+  delay?: number;
+}
+
+interface ObjectConfig {
+  right?: AnimatedObject;
+  top?: AnimatedObject;
+  show?: AnimatedObject;
+  hide?: AnimatedObject;
+}
+```

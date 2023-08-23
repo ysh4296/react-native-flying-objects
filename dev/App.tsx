@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import {Text,StyleSheet, SafeAreaView, Pressable} from 'react-native';
+import {Text,StyleSheet, SafeAreaView, Pressable, Easing} from 'react-native';
 
 import FlyingView from './dist';
 
@@ -7,42 +7,34 @@ import FlyingView from './dist';
 // const DELAY = 0;
 
 const App = () => {
-  const [object, setObject] = useState<AnimatedObject[]>([]);
+  const [object, setObject] = useState<ObjectConfig[]>([]);
   const objectConfig = useMemo(
     () => ({
-      // right: {
-      //   fromValue: 15,
-      //   toValue: Math.floor(Math.random() * 30),
-      //   duration: 1200,
-      //   easing:Easing.bezier(
-      //     Math.floor(Math.random() * 10) / 10,
-      //     Math.floor(Math.random() * 10) / 10 + 0.7,
-      //     Math.floor(Math.random() * 10) / 10,
-      //     Math.floor(Math.random() * 10) / 10 + 0.7,
-      //   ),
-      //   delay: DELAY,
-      // },
-      // top: {
-      //   fromValue: 100,
-      //   toValue: 35,
-      //   duration: 1200,
-      //   easing: Easing.bezier(0.5, 1.0, 0.5, 1.0),
-      //   delay: DELAY,
-      // },
-      // show: {
-      //   fromValue: 1,
-      //   toValue: 0,
-      //   duration: DURATION,
-      //   easing: Easing.exp,
-      //   delay: DELAY,
-      // },
-      // hide:{
-      //   fromValue: 1,
-      //   toValue: 0,
-      //   duration: DURATION,
-      //   easing: Easing.exp,
-      //   delay: DELAY,
-      // },
+      right: {
+        fromValue: 15,
+        toValue: Math.floor(Math.random() * 30),
+        duration: 1200,
+        easing:Easing.bezier(
+          Math.floor(Math.random() * 10) / 10,
+          Math.floor(Math.random() * 10) / 10 + 0.7,
+          Math.floor(Math.random() * 10) / 10,
+          Math.floor(Math.random() * 10) / 10 + 0.7,
+        ),
+      },
+      top: {
+        fromValue: 100,
+        toValue: 35,
+        duration: 1200,
+        easing: Easing.bezier(0.5, 1.0, 0.5, 1.0),
+      },
+      show: {
+        fromValue: 0,
+        toValue: 1,
+      },
+      hide:{
+        fromValue: 1,
+        toValue: 0,
+      },
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [object]
@@ -50,12 +42,12 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-        <FlyingView object={object} objectConfig={objectConfig} containerProps={{style:{  borderWidth:2,borderColor:'black'}}}>
+        <FlyingView object={object} containerProps={{style:{  borderWidth:2,borderColor:'black'}}}>
           <Text>hello</Text>
         </FlyingView>
         <Pressable
           onPress={() => {
-            setObject((prev) => [{}, ...prev]);
+            setObject((prev) => [...prev,objectConfig]);
           }}
           style={{ backgroundColor : 'yellow' }}
         >

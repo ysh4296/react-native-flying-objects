@@ -5722,10 +5722,10 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   "version" "17.0.2"
 
-"react-native-flying-objects@^1.0.1":
-  "integrity" "sha512-zBJQbPCaZLY18LknrSLldDh6zQJunGAoDQgTymFHmX2sI+7GX+HWfBiU2jGrt83P5BK0l7vXItwcP8pmhHq+rQ=="
-  "resolved" "https://registry.npmjs.org/react-native-flying-objects/-/react-native-flying-objects-1.0.1.tgz"
-  "version" "1.0.1"
+"react-native-flying-objects@^1.0.3":
+  "integrity" "sha512-gQJmIstLPeio3a9o9OLaz3EjLCZx97XuolFDt8RRD7ZuK78WhGKRpHxUosKuutZWLQDXLz5Vh9PiTK1JowZnbw=="
+  "resolved" "https://registry.npmjs.org/react-native-flying-objects/-/react-native-flying-objects-1.0.3.tgz"
+  "version" "1.0.3"
 
 "react-native@*", "react-native@0.72.4":
   "integrity" "sha512-+vrObi0wZR+NeqL09KihAAdVlQ9IdplwznJWtYrjnQ4UbCW6rkzZJebRsugwUneSOKNFaHFEo1uKU89HsgtYBg=="

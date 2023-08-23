@@ -1,10 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import {Text,StyleSheet, SafeAreaView, Pressable, Easing} from 'react-native';
 
-import FlyingView from './dist';
-
-// const DURATION = 700;
-// const DELAY = 0;
+import FlyingView from 'react-native-flying-objects';
 
 const App = () => {
   const [object, setObject] = useState<ObjectConfig[]>([]);
@@ -47,7 +44,8 @@ const App = () => {
         </FlyingView>
         <Pressable
           onPress={() => {
-            setObject((prev) => [...prev,objectConfig]);
+            console.log(objectConfig);
+            setObject((prev) => [...prev,{}]);
           }}
           style={{ backgroundColor : 'yellow' }}
         >

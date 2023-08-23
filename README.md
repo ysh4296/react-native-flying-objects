@@ -34,12 +34,28 @@ add properties for modify FlyingView.
 
   ```js
   return (
-    <FlyingView object={object}>
+    <FlyingView
+      object={object}
+      containerProps={{ style: { borderWidth: 2, borderColor: 'black' } }}
+    >
       <Text>hello</Text>
     </FlyingView>
   );
   // text "hello" will be the object that flying
   ```
+
+- result
+  ![Demo](demo/testCodeDemo.gif)
+
+## PROPERTIES
+
+### FlyIngView
+
+| Property       | required | Type            | Description                                         | DefaultValue                                         |     |
+| -------------- | -------- | --------------- | --------------------------------------------------- | ---------------------------------------------------- | --- |
+| chlidren       | true     | React.ReactNode | A template for creating a flying object.            | none                                                 |     |
+| object         | true     | ObjectConfig    | list of objects manages by View.                    | undefined                                            |     |
+| containerProps | false    | ViewProps       | Props for the container in which the object floats. | {pointerEvents:"none",style={{width:50,height:120}}} |
 
 ## TYPES
 

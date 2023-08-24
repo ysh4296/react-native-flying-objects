@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, ViewProps } from 'react-native';
 import FlyingObjects from './FlyingObjects';
-
+import { ObjectConfig } from './types';
 interface FlyingViewProps {
   children: React.ReactNode;
   object: ObjectConfig[];

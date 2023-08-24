@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Animated, Easing, StyleSheet } from 'react-native';
-import { ObjectConfig } from './types';
+
 interface FlyingObjectsProps {
   children: React.ReactNode;
   objectConfig: ObjectConfig;

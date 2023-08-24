@@ -1,4 +1,4 @@
-export interface AnimatedObject {
+interface AnimatedObject {
   fromValue?: number;
   toValue?: number;
   duration?: number;
@@ -6,7 +6,7 @@ export interface AnimatedObject {
   delay?: number;
 }
 
-export interface ObjectConfig {
+interface ObjectConfig {
   right?: AnimatedObject;
   top?: AnimatedObject;
   show?: AnimatedObject;

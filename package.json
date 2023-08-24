@@ -1,10 +1,9 @@
 {
   "name": "react-native-flying-objects",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "flying objects for react native",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "typings": "definitions/index.d.ts",
   "scripts": {
     "lint": "eslint --ext .tsx --ext .ts src/",
     "format": "prettier --check ./src",

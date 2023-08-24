@@ -56,8 +56,8 @@ add properties for modify FlyingView.
 
 | Property       | required | Type                                                              | Description                                         | DefaultValue                                            |
 | -------------- | -------- | ----------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------------- |
-| chlidren       | true     | React.ReactNode                                                   | A template for creating a flying object.            | none                                                    |  |
-| object         | true     | [ObjectConfig](#objectconfig)                                     | list of objects managed by container.               | undefined                                               |  |
+| chlidren       | true     | React.ReactNode                                                   | A template for creating a flying object.            | none                                                    |
+| object         | true     | [ObjectConfig](#objectconfig)                                     | list of objects managed by container.               | undefined                                               |
 | containerProps | false    | [React-native.ViewProps](https://reactnative.dev/docs/view#props) | Props for the container in which the object floats. | `{pointerEvents:"none",style={{width:50,height:120}}} ` |
 
 ### ObjectConfig

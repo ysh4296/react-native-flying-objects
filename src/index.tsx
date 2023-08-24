@@ -1,26 +1,5 @@
-import React from 'react';
-import { View, ViewProps } from 'react-native';
-import FlyingObjects from './FlyingObjects';
-import { ObjectConfig } from './types';
+import FlyingView from './FlyingView';
 
-interface FlyingViewProps {
-  children: React.ReactNode;
-  object: ObjectConfig[];
-  containerProps?: ViewProps;
-}
+export { FlyingView };
 
-export const FlyingView = ({ children, object, containerProps }: FlyingViewProps) => {
-  return (
-    <View
-      pointerEvents="none"
-      {...containerProps}
-      style={[{ width: 50, height: 120 }, containerProps?.style]}
-    >
-      {object.map((object, index) => (
-        <FlyingObjects key={index} objectConfig={object}>
-          {children}
-        </FlyingObjects>
-      ))}
-    </View>
-  );
-};
+export type { ObjectConfig, AnimatedObject } from './types';

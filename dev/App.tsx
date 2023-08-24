@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import {Text,StyleSheet, SafeAreaView, Pressable} from 'react-native';
 
-// import FlyingView from 'react-native-flying-objects';
-import { FlyingView } from '../dist';
+import {FlyingView} from 'react-native-flying-objects';
 
 const App = () => {
   const [object, setObject] = useState<ObjectConfig[]>([]);

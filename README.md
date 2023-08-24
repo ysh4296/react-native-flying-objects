@@ -11,7 +11,7 @@ flying objects package for react native
 import react-native-flying-objects.
 
 ```js
-import FlyingView from 'react-native-flying-objects';
+import { FlyingView } from 'react-native-flying-objects';
 ```
 
 add properties for modify FlyingView.

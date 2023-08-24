@@ -1,5 +1,9 @@
 # react-native-flying-objects
 
+## DESCRIPTION
+
+![previewVedio](/demo/preview.gif)
+
 flying objects package for react native
 
 ## INSTALLATION
@@ -46,7 +50,7 @@ add properties for modify FlyingView.
 
 - result
 
-  ![demoVedio](/demo/testCodeDemo.gif)
+  ![demoVedio](/demo/demo.gif)
 
   [Demo code in my github](https://github.com/ysh4296/react-native-flying-objects/blob/main/dev/App.tsx)
 

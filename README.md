@@ -3,6 +3,7 @@
 ## DESCRIPTION
 
 ![previewVedio](/demo/preview.gif)
+[preview "reaction button" code from my expo base project](https://github.com/CCC-org/keewe-app/blob/main/src/components/emoticons/ReactIconButton.tsx)
 
 flying objects package for react native
 

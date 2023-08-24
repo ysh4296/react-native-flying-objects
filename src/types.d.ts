@@ -1,4 +1,10 @@
-export interface AnimatedObject {
+export interface AnimatedOpacity {
+  duration?: number;
+  easing?: ((value: number) => number) | undefined;
+  delay?: number;
+}
+
+export interface AnimatedPosition {
   fromValue?: number;
   toValue?: number;
   duration?: number;
@@ -7,8 +13,8 @@ export interface AnimatedObject {
 }
 
 export interface ObjectConfig {
-  right?: AnimatedObject;
-  top?: AnimatedObject;
-  show?: AnimatedObject;
-  hide?: AnimatedObject;
+  right?: AnimatedPosition;
+  top?: AnimatedPosition;
+  show?: AnimatedOpacity;
+  hide?: AnimatedOpacity;
 }

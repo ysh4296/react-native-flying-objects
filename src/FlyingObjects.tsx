@@ -20,22 +20,13 @@ const FlyingObjects = ({ children, objectConfig }: FlyingObjectsProps) => {
       fromValue: 0,
       toValue: 0,
       duration: 1200,
-      easing: Easing.bezier(
-        Math.floor(Math.random() * 10) / 10,
-        Math.floor(Math.random() * 10) / 10 + 0.7,
-        Math.floor(Math.random() * 10) / 10,
-        Math.floor(Math.random() * 10) / 10 + 0.7,
-      ),
       delay: 0,
     },
     show: {
-      fromValue: 0,
-      toValue: 1,
       duration: 500,
       delay: 0,
     },
     hide: {
-      toValue: 0,
       duration: 500,
       delay: 0,
     },
@@ -50,19 +41,17 @@ const FlyingObjects = ({ children, objectConfig }: FlyingObjectsProps) => {
   const rightValue = useRef(
     new Animated.Value(right?.fromValue ?? defaultConfig.right.fromValue),
   ).current;
-  const opacityValue = useRef(
-    new Animated.Value(show?.fromValue ?? defaultConfig.show.fromValue),
-  ).current;
+  const opacityValue = useRef(new Animated.Value(0)).current;
 
   if (animation) {
     Animated.timing(opacityValue, {
-      toValue: show?.toValue ?? defaultConfig.show.toValue,
+      toValue: 1,
       duration: show?.duration ?? defaultConfig.show.duration,
       delay: show?.delay ?? defaultConfig.show.delay,
       useNativeDriver: false,
     }).start(() => {
       Animated.timing(opacityValue, {
-        toValue: hide?.toValue ?? defaultConfig.hide.toValue,
+        toValue: 0,
         duration: hide?.duration,
         delay: hide?.delay ?? defaultConfig.hide.delay,
         useNativeDriver: false,
@@ -80,7 +69,7 @@ const FlyingObjects = ({ children, objectConfig }: FlyingObjectsProps) => {
     Animated.timing(rightValue, {
       toValue: right?.toValue ?? defaultConfig.right.toValue,
       duration: right?.duration ?? defaultConfig.right.duration,
-      easing: right?.easing ?? defaultConfig.right.easing,
+      easing: right?.easing,
       delay: right?.delay ?? defaultConfig.right.delay,
       useNativeDriver: false,
     }).start();

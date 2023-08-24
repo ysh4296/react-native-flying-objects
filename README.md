@@ -2,8 +2,11 @@
 
 ## DESCRIPTION
 
-![previewVedio](/demo/preview.gif)
-[preview "reaction button" code from my expo base project](https://github.com/CCC-org/keewe-app/blob/main/src/components/emoticons/ReactIconButton.tsx)
+- Preview
+
+  ![previewVedio](/demo/preview.gif)
+
+  [preview "reaction button" code from my expo base project](https://github.com/CCC-org/keewe-app/blob/main/src/components/emoticons/ReactIconButton.tsx)
 
 flying objects package for react native
 
@@ -62,35 +65,47 @@ add properties for modify FlyingView.
 | Property       | required | Type                                                              | Description                                         | DefaultValue                                            |
 | -------------- | -------- | ----------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------------- |
 | chlidren       | true     | React.ReactNode                                                   | A template for creating a flying object.            | none                                                    |
-| object         | true     | [ObjectConfig](#objectconfig)                                     | list of objects managed by container.               | undefined                                               |
+| object         | true     | [ObjectConfig](#TYPES)                                            | list of objects managed by container.               | undefined                                               |
 | containerProps | false    | [React-native.ViewProps](https://reactnative.dev/docs/view#props) | Props for the container in which the object floats. | `{pointerEvents:"none",style={{width:50,height:120}}} ` |
 
 ### ObjectConfig
 
-| Property | required | Type                     | Description                                              | DefaultValue                                                                                                                                                                                                                             |
-| -------- | -------- | ------------------------ | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| right    | false    | [AnimatedObject](#TYPES) | animated value for position right of object on container | `{fromValue: 0,toValue: 0,duration: 1200,easing: Easing.bezier(Math.floor(Math.random() * 10) / 10,Math.floor(Math.random() * 10) / 10 + 0.7,Math.floor(Math.random() * 10) / 10,Math.floor(Math.random() * 10) / 10 + 0.7,),delay: 0,}` |
-| top      | false    | [AnimatedObject](#TYPES) | animated value for position top of object on container   | `{fromValue: 100,toValue: 35,duration: 1200,easing: Easing.bezier(0.5, 1.0, 0.5, 1.0),delay: 0,}`                                                                                                                                        |
-| show     | false    | [AnimatedObject](#TYPES) | animated opacity value when object appears               | `{fromValue: 0,toValue: 1,duration: 500,delay: 0,}`                                                                                                                                                                                      |
-| hide     | false    | [AnimatedObject](#TYPES) | animated opacity value when object disappears            | `{toValue: 0,duration: 500,delay: 0,}`                                                                                                                                                                                                   |
+| Property | required | Type                       | Description                                              | DefaultValue                                                                                      |
+| -------- | -------- | -------------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| right    | false    | [AnimatedPosition](#TYPES) | animated value for position right of object on container | `{fromValue: 0,toValue: 0,duration: 1200, delay: 0,}`                                             |
+| top      | false    | [AnimatedPosition](#TYPES) | animated value for position top of object on container   | `{fromValue: 100,toValue: 35,duration: 1200,easing: Easing.bezier(0.5, 1.0, 0.5, 1.0),delay: 0,}` |
+| show     | false    | [AnimatedOpacity](#TYPES)  | animated opacity value when object appears               | `{duration: 500,delay: 0,}`                                                                       |
+| hide     | false    | [AnimatedOpacity](#TYPES)  | animated opacity value when object disappears            | `{duration: 500,delay: 0,}`                                                                       |
 
 ## TYPES
 
 types for use FlyingView
 
 ```js
-interface AnimatedObject {
-  fromValue?: number; // starting Value
-  toValue?: number; // finish value
-  duration?: number; // animate time
-  easing?: ((value: number) => number) | undefined; // Type of Animated.View.easing
-  delay?: number; // waiting time
+interface AnimatedOpacity {
+  duration?: number;
+  easing?: ((value: number) => number) | undefined;
+  delay?: number;
+}
+
+interface AnimatedPosition {
+  fromValue?: number;
+  toValue?: number;
+  duration?: number;
+  easing?: ((value: number) => number) | undefined;
+  delay?: number;
 }
 
 interface ObjectConfig {
-  right?: AnimatedObject;
-  top?: AnimatedObject;
-  show?: AnimatedObject;
-  hide?: AnimatedObject;
+  right?: AnimatedPosition;
+  top?: AnimatedPosition;
+  show?: AnimatedOpacity;
+  hide?: AnimatedOpacity;
 }
+
+// easing from react-native
 ```
+
+### REFERENCE DOCUMENTS
+
+- [Easing](https://reactnative.dev/docs/easing)

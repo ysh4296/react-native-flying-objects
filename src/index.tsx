@@ -2,7 +2,7 @@ import FlyingView from './FlyingView';
 
 export { FlyingView };
 
-export interface AnimatedPosition {
+interface AnimatedPosition {
   fromValue?: number;
   toValue?: number;
   duration?: number;
@@ -10,7 +10,7 @@ export interface AnimatedPosition {
   delay?: number;
 }
 
-export interface AnimatedOpacity {
+interface AnimatedOpacity {
   duration?: number;
   easing?: ((value: number) => number) | undefined;
   delay?: number;

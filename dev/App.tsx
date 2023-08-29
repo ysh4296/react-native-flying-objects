@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
 import {Text,StyleSheet, SafeAreaView, Pressable} from 'react-native';
 
-import {FlyingView, ObjectConfig} from 'react-native-flying-objects';
+import {FlyingView, ObjectConfig} from './dist';
 
 const App = () => {
   const [object, setObject] = useState<ObjectConfig[]>([]);
 
   return (
     <SafeAreaView style={styles.container}>
-        <FlyingView object={object} containerProps={{style:{  borderWidth:2,borderColor:'black'}}}>
-          <Text>hello</Text>
-        </FlyingView>
+        <FlyingView object={object} containerProps={{style:{  borderWidth:2,borderColor:'black'}}} />
         <Pressable
           onPress={() => {
-            setObject((prev) => [...prev,{}]);
+            setObject((prev) => [...prev,{object:<Text>hello</Text>}]);
           }}
           style={{ backgroundColor : 'yellow' }}
         >

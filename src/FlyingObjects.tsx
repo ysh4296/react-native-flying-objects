@@ -1,13 +1,12 @@
 import React, { useRef, useState } from 'react';
 import { Animated, Easing, StyleSheet } from 'react-native';
-import { ObjectConfig } from './types';
+import { ObjectConfig } from './index';
 
 interface FlyingObjectsProps {
-  children: React.ReactNode;
   objectConfig: ObjectConfig;
 }
 
-const FlyingObjects = ({ children, objectConfig }: FlyingObjectsProps) => {
+const FlyingObjects = ({ objectConfig }: FlyingObjectsProps) => {
   const defaultConfig = {
     top: {
       fromValue: 100,
@@ -32,7 +31,7 @@ const FlyingObjects = ({ children, objectConfig }: FlyingObjectsProps) => {
     },
   };
 
-  const { top, right, show, hide } = objectConfig;
+  const { object, top, right, show, hide } = objectConfig;
 
   const [animation, setAnimation] = useState<boolean>(true);
   const topValue = useRef(
@@ -81,7 +80,7 @@ const FlyingObjects = ({ children, objectConfig }: FlyingObjectsProps) => {
     <Animated.View
       style={{ ...styles.object, top: topValue, right: rightValue, opacity: opacityValue }}
     >
-      {children}
+      {object}
     </Animated.View>
   );
 };

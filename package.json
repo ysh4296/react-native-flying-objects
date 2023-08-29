@@ -16,7 +16,14 @@
     "url": "git+https://github.com/ysh4296/react-native-flying-objects.git"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "fly",
+    "flying",
+    "objects",
+    "emoji",
+    "animation",
+    "animated-emoji",
+    "typescript"
   ],
   "author": "cadi <dbtmdgns4296@naver.com>",
   "license": "MIT",

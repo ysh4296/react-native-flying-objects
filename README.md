@@ -10,6 +10,8 @@
 
 flying objects package for react native
 
+this library based on [Animated.View](#reference-documents) and [Easing](#reference-documents)
+
 ## INSTALLATION
 
 `npm install --save react-native-flying-objects`
@@ -34,8 +36,9 @@ add properties for modify FlyingView.
 - when you want to add object just add more state
 
   ```js
-  setObject((prev) => [...prev, newObject]);
+  setObject((prev) => [...prev, { object: <Text>hello</Text> }]);
   // the new object added
+  // text "hello" will be the object that flying
   ```
 
 - add FlyingView where you want to use.
@@ -45,11 +48,8 @@ add properties for modify FlyingView.
     <FlyingView
       object={object}
       containerProps={{ style: { borderWidth: 2, borderColor: 'black' } }}
-    >
-      <Text>hello</Text>
-    </FlyingView>
+    />
   );
-  // text "hello" will be the object that flying
   ```
 
 - result
@@ -64,7 +64,6 @@ add properties for modify FlyingView.
 
 | Property       | required | Type                                                              | Description                                         | DefaultValue                                            |
 | -------------- | -------- | ----------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------------- |
-| chlidren       | true     | React.ReactNode                                                   | A template for creating a flying object.            | none                                                    |
 | object         | true     | [ObjectConfig](#TYPES)                                            | list of objects managed by container.               | undefined                                               |
 | containerProps | false    | [React-native.ViewProps](https://reactnative.dev/docs/view#props) | Props for the container in which the object floats. | `{pointerEvents:"none",style={{width:50,height:120}}} ` |
 
@@ -72,6 +71,7 @@ add properties for modify FlyingView.
 
 | Property | required | Type                       | Description                                              | DefaultValue                                                                                      |
 | -------- | -------- | -------------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| object   | true     | React.ReactNode            | the object that flies on FlyingView                      | -                                                                                                 |
 | right    | false    | [AnimatedPosition](#TYPES) | animated value for position right of object on container | `{fromValue: 0,toValue: 0,duration: 1200, delay: 0,}`                                             |
 | top      | false    | [AnimatedPosition](#TYPES) | animated value for position top of object on container   | `{fromValue: 100,toValue: 35,duration: 1200,easing: Easing.bezier(0.5, 1.0, 0.5, 1.0),delay: 0,}` |
 | show     | false    | [AnimatedOpacity](#TYPES)  | animated opacity value when object appears               | `{duration: 500,delay: 0,}`                                                                       |
@@ -82,12 +82,6 @@ add properties for modify FlyingView.
 types for use FlyingView
 
 ```js
-interface AnimatedOpacity {
-  duration?: number;
-  easing?: ((value: number) => number) | undefined;
-  delay?: number;
-}
-
 interface AnimatedPosition {
   fromValue?: number;
   toValue?: number;
@@ -96,7 +90,14 @@ interface AnimatedPosition {
   delay?: number;
 }
 
+interface AnimatedOpacity {
+  duration?: number;
+  easing?: ((value: number) => number) | undefined;
+  delay?: number;
+}
+
 interface ObjectConfig {
+  object: React.ReactNode;
   right?: AnimatedPosition;
   top?: AnimatedPosition;
   show?: AnimatedOpacity;
@@ -108,4 +109,7 @@ interface ObjectConfig {
 
 ### REFERENCE DOCUMENTS
 
+##### React Native
+
+- [Animated](https://reactnative.dev/docs/animated)
 - [Easing](https://reactnative.dev/docs/easing)

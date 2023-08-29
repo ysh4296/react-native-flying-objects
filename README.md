@@ -3,8 +3,7 @@
 ## DESCRIPTION
 
 - Preview
-
-  ![previewVedio](/demo/preview.gif)
+  <img src="./demo/preview.gif" width="400" height="120">
 
   [preview "reaction button" code from my expo base project](https://github.com/CCC-org/keewe-app/blob/main/src/components/emoticons/ReactIconButton.tsx)
 
@@ -54,7 +53,7 @@ add properties for modify FlyingView.
 
 - result
 
-  ![demoVedio](/demo/demo.gif)
+  <img src="./demo/demo.gif" width="120" height="150">
 
   [Demo code in my github](https://github.com/ysh4296/react-native-flying-objects/blob/main/dev/App.tsx)
 

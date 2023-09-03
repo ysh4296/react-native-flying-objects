@@ -1,5 +1,13 @@
 .github
+.eslintrc.js
+.gitignore
+.npmignore
+.prettierignore
+.prettierrc.js
+package.json
+tsconfig.json
 node_modules
 dev
 expo
 demo
+src

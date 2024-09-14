@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import {Text,StyleSheet, SafeAreaView, Pressable} from 'react-native';
+import React, {useState} from 'react';
+import {Text, StyleSheet, SafeAreaView, Pressable} from 'react-native';
 
 import {FlyingView, ObjectConfig} from './dist';
 
@@ -8,15 +8,17 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-        <FlyingView object={object} containerProps={{style:{  borderWidth:2,borderColor:'black'}}} />
-        <Pressable
-          onPress={() => {
-            setObject((prev) => [...prev,{object:<Text>hello</Text>}]);
-          }}
-          style={{ backgroundColor : 'yellow' }}
-        >
-          <Text>button</Text>
-        </Pressable>
+      <FlyingView
+        object={object}
+        containerProps={{style: {borderWidth: 2, borderColor: 'black'}}}
+      />
+      <Pressable
+        onPress={() => {
+          setObject(prev => [...prev, {object: <Text>hello</Text>}]);
+        }}
+        style={{backgroundColor: 'yellow'}}>
+        <Text>button</Text>
+      </Pressable>
     </SafeAreaView>
   );
 };

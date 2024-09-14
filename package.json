@@ -1,6 +1,6 @@
 {
   "name": "react-native-flying-objects",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "flying objects for react native",
   "main": "./dist/commonjs/index.js",
   "types": "./dist/typescript/commonjs/index.d.ts",

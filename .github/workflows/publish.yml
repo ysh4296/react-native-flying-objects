@@ -1,0 +1,47 @@
+name: Publish npm Package
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'package.json'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Cache npm modules
+        uses: actions/cache@v4.0.2
+        with:
+          path: |
+            ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Check if version has changed
+        id: version
+        run: |
+          git fetch --tags
+          if git tag -l | grep -q "v$(node -p "require('./package.json').version")"; then
+            echo "Version already published"
+            exit 1
+          fi
+
+      - name: Publish to npm
+        if: steps.version.outcome == 'success'
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+          npm publish --access public

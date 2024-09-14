@@ -3,6 +3,9 @@
 ![NPM Version](https://img.shields.io/npm/v/react-native-flying-objects)
 ![NPM Downloads](https://img.shields.io/npm/dm/react-native-flying-objects)
 ![NPM License](https://img.shields.io/npm/l/react-native-flying-objects)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/ysh4296/react-native-flying-objects/publish.yml?label=Deployment&&logo=npm)
+
+
 
 
 

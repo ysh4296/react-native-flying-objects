@@ -1,5 +1,11 @@
 # react-native-flying-objects
 
+![NPM Version](https://img.shields.io/npm/v/react-native-flying-objects)
+![NPM Downloads](https://img.shields.io/npm/dm/react-native-flying-objects)
+![NPM License](https://img.shields.io/npm/l/react-native-flying-objects)
+
+
+
 ## DESCRIPTION
 
 - Preview
